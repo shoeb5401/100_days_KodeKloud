@@ -9,3 +9,13 @@ The Nautilus application development team was working on a git repository /opt/g
     Note: Perform this task using the natasha user, and ensure the repository or existing directory permissions are not altered.
 
 
+#My question was on /opt/media.git folder so-- /opt/media.git/hooks/post-update
+
+#!/usr/bin/sh
+
+# Arguments to post-update
+DATE=$(date +%F)        # YYYY-MM-DD
+GIT_DIR=$(pwd)
+
+        echo "Creating tag release-$DATE"
+        git --git-dir="$GIT_DIR" tag "release-$DATE" master
