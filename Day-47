@@ -1,0 +1,8 @@
+Write a Dockerfile with any python base image and requiremnet and code is located in src folder use port 5002 and map 8095 port of host to the port of the connatiner.
+
+FROM python:3.9.25-slim
+WORKDIR /app
+COPY src/  . 
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5002
+CMD ["python","server.py"]
